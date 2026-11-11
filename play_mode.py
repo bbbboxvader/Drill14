@@ -31,8 +31,10 @@ def init():
     grass = Grass()
     game_world.add_oject(grass, 0)
 
+    # 다섯 마리씩 두 줄로 배치해 날갯짓을 알아보기 쉽게 한다.
     for index in range(10):
-        game_world.add_oject(Bird(150 + index * 100, 420))
+        column, row = index % 5, index // 5
+        game_world.add_oject(Bird(140 + column * 170, 480 - row * 110))
 
 
 def pause():
