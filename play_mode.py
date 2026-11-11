@@ -3,6 +3,7 @@ import game_world
 import game_framework
 from boy import Boy
 from grass import Grass
+from bird import Bird
 
 boy = None
 
@@ -30,6 +31,9 @@ def init():
     grass = Grass()
     game_world.add_oject(grass, 0)
 
+    for index in range(10):
+        game_world.add_oject(Bird(150 + index * 100, 420))
+
 
 def pause():
     boy.pause()
@@ -47,7 +51,6 @@ def finish():
 
 def update():
     game_world.update()
-
 def render():
     clear_canvas()
     game_world.render()
