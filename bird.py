@@ -32,3 +32,13 @@ class Bird:
         self.frame = 0.0
         if Bird.image is None:
             Bird.image = load_image('bird_animation.png')
+
+    @staticmethod
+    def frame_rect(frame):
+        index = int(frame) % FRAME_COUNT
+        row, column = divmod(index, SHEET_COLUMNS)
+        left = column * SHEET_WIDTH // SHEET_COLUMNS
+        right = (column + 1) * SHEET_WIDTH // SHEET_COLUMNS
+        top = SHEET_HEIGHT - row * SHEET_HEIGHT // SHEET_ROWS
+        bottom = SHEET_HEIGHT - (row + 1) * SHEET_HEIGHT // SHEET_ROWS
+        return left, bottom, right - left, top - bottom
