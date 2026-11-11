@@ -18,3 +18,13 @@ FLIGHT_SPEED_PPS = FLIGHT_SPEED_MPS * PIXEL_PER_METER
 DISTANCE_PER_WINGBEAT_M = 0.8
 WINGBEAT_SECONDS = DISTANCE_PER_WINGBEAT_M / FLIGHT_SPEED_MPS
 ANIMATION_FPS = FRAME_COUNT / WINGBEAT_SECONDS
+
+DRAW_WIDTH = 100
+DRAW_HEIGHT = 92
+
+class Bird:
+    def __init__(self, x, y):
+        self.x = float(x)
+        self.y = float(y)
+        self.direction = 1
+        self.frame = 0.0
