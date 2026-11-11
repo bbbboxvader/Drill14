@@ -53,3 +53,15 @@ class Bird:
         dt = game_framework.frame_time
         self.frame = (self.frame + ANIMATION_FPS * dt) % FRAME_COUNT
         self.x += self.direction * FLIGHT_SPEED_PPS * dt
+        left = DRAW_WIDTH / 2
+        right = get_canvas_width() - DRAW_WIDTH / 2
+        if right <= left:
+            self.x = get_canvas_width() / 2
+            return
+        while self.x < left or self.x > right:
+            if self.x > right:
+                self.x = 2 * right - self.x
+                self.direction = -1
+            elif self.x < left:
+                self.x = 2 * left - self.x
+                self.direction = 1
