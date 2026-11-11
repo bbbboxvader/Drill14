@@ -10,6 +10,8 @@ from ball import Ball
 
 import game_framework
 
+IDLE_FRAMES_PER_SECOND = 6.0
+
 
 
 
@@ -23,11 +25,11 @@ class Idle:
         if get_time() - boy.idle_started_at >= 5.0:
             boy.fall_asleep()
         else:
-            boy.frame = (boy.frame + 1) % 8
+            boy.frame = (boy.frame + IDLE_FRAMES_PER_SECOND * game_framework.frame_time) % 8
 
     def draw(self, boy):
         row = 300 if boy.face_dir == 1 else 200
-        boy.image.clip_draw(boy.frame * 100, row, 100, 100, boy.x, boy.y)
+        boy.image.clip_draw(int(boy.frame) * 100, row, 100, 100, boy.x, boy.y)
 
     def space(self, boy):
         boy.fire_ball()
