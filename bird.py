@@ -42,3 +42,9 @@ class Bird:
         top = SHEET_HEIGHT - row * SHEET_HEIGHT // SHEET_ROWS
         bottom = SHEET_HEIGHT - (row + 1) * SHEET_HEIGHT // SHEET_ROWS
         return left, bottom, right - left, top - bottom
+
+    def draw(self):
+        left, bottom, width, height = self.frame_rect(self.frame)
+        self.image.clip_composite_draw(
+            left, bottom, width, height, 0, '',
+            self.x, self.y, DRAW_WIDTH, DRAW_HEIGHT)
