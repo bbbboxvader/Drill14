@@ -46,7 +46,7 @@ class Bird:
     def draw(self):
         left, bottom, width, height = self.frame_rect(self.frame)
         self.image.clip_composite_draw(
-            left, bottom, width, height, 0, '',
+            left, bottom, width, height, 0, 'h' if self.direction < 0 else '',
             self.x, self.y, DRAW_WIDTH, DRAW_HEIGHT)
 
     def update(self):
