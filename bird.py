@@ -23,8 +23,12 @@ DRAW_WIDTH = 100
 DRAW_HEIGHT = 92
 
 class Bird:
+    image = None
+
     def __init__(self, x, y):
         self.x = float(x)
         self.y = float(y)
         self.direction = 1
         self.frame = 0.0
+        if Bird.image is None:
+            Bird.image = load_image('bird_animation.png')
