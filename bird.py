@@ -52,3 +52,4 @@ class Bird:
     def update(self):
         dt = game_framework.frame_time
         self.frame = (self.frame + ANIMATION_FPS * dt) % FRAME_COUNT
+        self.x += self.direction * FLIGHT_SPEED_PPS * dt
