@@ -48,3 +48,7 @@ class Bird:
         self.image.clip_composite_draw(
             left, bottom, width, height, 0, '',
             self.x, self.y, DRAW_WIDTH, DRAW_HEIGHT)
+
+    def update(self):
+        dt = game_framework.frame_time
+        self.frame = (self.frame + ANIMATION_FPS * dt) % FRAME_COUNT
